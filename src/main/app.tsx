@@ -5,7 +5,7 @@ import {BrowserRouter} from 'react-router-dom'
 import {DataContainer, DataContext} from '../data/dataContext'
 import {MainRouter} from './mainRouter'
 import {createDataContainer} from './dataContainerInitializer'
-import keycloak from "./Keycloak";
+import _kc from "./Keycloak";
 import {ReactKeycloakProvider} from "@react-keycloak/web";
 import {UserLoader} from "./userLoader";
 
@@ -25,7 +25,7 @@ export const App = () => {
 
 
     return (
-        <ReactKeycloakProvider authClient={keycloak} onTokens={(token) => {if(token.token) sessionStorage.setItem("token", token.token )}}>
+        <ReactKeycloakProvider authClient={_kc}>
             <DataContext.Provider value={dataContainer}>
                 <UserLoader>
                     <BrowserRouter>
