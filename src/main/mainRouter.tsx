@@ -9,9 +9,10 @@ export const MainRouter = () => {
 
   return (
     <Routes>
-        <Route path={'/'} element={<Home/>}/>
+        <Route path={'/home'} element={<Home/>}/>
         <Route path="/user/:userId" element={ <UserProfile/> }/>
         <Route path="/post/:postId" element={ <PostPage/> }/>
+        <Route path={'/*'} element={<Home/>}/>
     </Routes>
   )
 }

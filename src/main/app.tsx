@@ -23,6 +23,10 @@ export const App = () => {
     if (dataContainer === undefined)
         return (<div>Loading ...</div>)
 
+    // if(_kc.tokenParsed === undefined) {
+    //     _kc.login()
+    // }
+
 
     return (
         <ReactKeycloakProvider authClient={_kc}>
