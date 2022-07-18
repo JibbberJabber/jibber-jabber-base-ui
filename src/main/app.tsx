@@ -27,9 +27,8 @@ export const App = () => {
     //     _kc.login()
     // }
 
-
     return (
-        <ReactKeycloakProvider authClient={_kc}>
+        <ReactKeycloakProvider authClient={_kc} onTokens={tokens => console.log("tokens:" + tokens)}>
             <DataContext.Provider value={dataContainer}>
                 <UserLoader>
                     <BrowserRouter>

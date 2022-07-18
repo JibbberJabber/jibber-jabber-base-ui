@@ -7,7 +7,7 @@ import { isNotUndefined } from '../utils/undefined'
 import { UserContext } from '../components/contexts/userContext'
 
 export type UserLoaderProps = {
-  children: ReactNode
+  children: ReactNode,
 }
 
 type UserLoaderState =

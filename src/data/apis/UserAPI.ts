@@ -29,6 +29,8 @@ class UserAPI implements UserData {
 
         const kc = _kc.tokenParsed
 
+        console.log("token parsed: "+kc)
+
         if(kc?.sub) {
 
             const user : User = {
