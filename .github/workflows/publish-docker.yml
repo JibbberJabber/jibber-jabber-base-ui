@@ -88,7 +88,6 @@ jobs:
           script: |
             cd Backend
             sudo docker-compose stop ui-server
-            sudo docker-compose rm -s -v ui-server
             sudo docker-compose pull ui-server
             sudo docker-compose up ui-server
 
