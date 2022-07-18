@@ -23,12 +23,14 @@ export const App = () => {
     if (dataContainer === undefined)
         return (<div>Loading ...</div>)
 
-    // if(_kc.tokenParsed === undefined) {
-    //     _kc.login()
-    // }
+    if(_kc.tokenParsed === undefined) {
+        _kc.login()
+    }
 
     return (
-        <ReactKeycloakProvider authClient={_kc} onTokens={tokens => console.log("tokens:" + tokens)}>
+        <ReactKeycloakProvider authClient={_kc} onTokens={tokens => {
+            console.log("tokens:" + tokens.token)
+            tokens.token? sessionStorage.setItem("token", tokens.token) : {} }}>
             <DataContext.Provider value={dataContainer}>
                 <UserLoader>
                     <BrowserRouter>
