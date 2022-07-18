@@ -41,6 +41,7 @@ export const UserLoader = ({children}: UserLoaderProps) => {
     })
   }, [])
 
+
   switch (state.status) {
     case 'loading':
       return <Loading/>
