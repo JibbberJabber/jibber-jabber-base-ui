@@ -1,7 +1,7 @@
 import {NewPost, Post, PostData} from "../posts";
 import keycloak from "../../Keycloak";
 
-const apiURL = "http://localhost:8083/posts"
+const apiURL = "https://jbbrjbbr2202.store/posts"
 
 class PostAPI implements PostData {
 
@@ -34,7 +34,7 @@ class PostAPI implements PostData {
         else if(sessionStorage.getItem("token")) token = sessionStorage.getItem("token")
 
 
-        return fetch(`${apiURL}/addPost`, {
+        return fetch(`${apiURL}/addPost/`, {
             method: 'POST',
             credentials: 'same-origin',
             headers: {
@@ -51,11 +51,13 @@ class PostAPI implements PostData {
 
     getFeedPosts(): Promise<Post[]> {
 
+        console.log(keycloak)
+
         let token
 
-        if(keycloak.token) token = keycloak.token
-        else if(sessionStorage.getItem("token")) token = sessionStorage.getItem("token")
+        if(sessionStorage.getItem("token")) token = sessionStorage.getItem("token")
 
+        console.log(token)
 
         return fetch(`${apiURL}/getAllPosts/`, {
             method: 'GET',

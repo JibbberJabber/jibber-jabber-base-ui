@@ -9,11 +9,11 @@ on:
   schedule:
     - cron: '35 21 * * *'
   push:
-    branches: [ "master" ]
+    branches: [ "develop" ]
     # Publish semver tags as releases.
     tags: [ 'v*.*.*' ]
   pull_request:
-    branches: [ "master" ]
+    branches: [ "develop" ]
 
 env:
   # Use docker.io for Docker Hub if empty
@@ -78,4 +78,16 @@ jobs:
           push: ${{ github.event_name != 'pull_request' }}
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
+
+      - name: Update server
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.DEV_IP }}
+          username: ${{ secrets.USERNAME }}
+          key: ${{ secrets.DEV_KEY }}
+          script: |
+            cd Backend
+            sudo docker-compose stop ui-server
+            sudo docker-compose pull ui-server
+            sudo docker-compose up -d ui-server
 
