@@ -4,7 +4,7 @@ import {Javascript} from "@mui/icons-material";
 import {tablePaginationClasses} from "@mui/material";
 import {isDOMComponent} from "react-dom/test-utils";
 
-const apiURL = "https://jbbrjbbr2202.store/follows"
+const apiURL = "https://jibberjabber.website/follows"
 
 
 class UserAPI implements UserData {

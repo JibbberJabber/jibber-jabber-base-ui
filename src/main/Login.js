@@ -12,7 +12,7 @@ export const Login = () => {
     const redirect = () => {
 
         keycloak.login( {
-            redirectUri:  'https://jbbrjbbr2202.store/home',
+            redirectUri:  'https://jibberjabber.website/home',
 
         } ).then(() => {
 
@@ -66,7 +66,7 @@ export const Login = () => {
         }else{
 
             keycloak.login( {
-                redirectUri:  'https://jbbrjbbr2202.store/home',
+                redirectUri:  'https://jibberjabber.website/home',
 
             } ).then(() => {
 
