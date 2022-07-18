@@ -16,29 +16,16 @@ class UserAPI implements UserData {
 
     getCurrentUser(): Promise<User | undefined> {
 
-        const u = sessionStorage.getItem("user")
-
-        if(u) return Promise.resolve(JSON.parse(u))
-
-        const sessionToken = sessionStorage.getItem("tokenParsed")
-
-        if(sessionToken) {
-
-            const t = JSON.parse(sessionToken)
-
-            const user : User = {
-
-                id: t.sub,
-                displayName: t.given_name + " " + t.family_name,
-                username: t.preferred_username
-
-            }
-
-            sessionStorage.setItem("user", JSON.stringify(user))
-
-            return Promise.resolve(user);
-
-        }
+        //     const tokenParsed = _kc.tokenParsed
+        //
+        //     return Promise.resolve({
+        //         id: tokenParsed?.sub
+        //         displayName: tokenParsed
+        //     });
+        //
+        // //    id: string
+        // //   displayName: string
+        // //   username: string
 
         const kc = _kc.tokenParsed
 
