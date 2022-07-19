@@ -67,7 +67,7 @@ class UserAPI implements UserData {
 
         try {
 
-            return fetch(`https://jbbrjbbr2202.store/auth/admin/realms/JibberJabber/users/${userId}`, {
+            return fetch(`https://jibberjabber.website/auth/admin/realms/JibberJabber/users/${userId}`, {
                 method: 'GET',
                 headers: {
                     'Authorization' : 'Bearer ' + token
